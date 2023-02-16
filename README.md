@@ -29,8 +29,9 @@ The HLA data contains the following information:
 1. HLA ID
 2. HLA classification (mostly for HLA.A)
 
-For most of the asian people, the HLA classification could be roughly divided into several groups:
-1. 
+For most of the asian people, the HLA classification could be roughly divided into several groups:  
+
+Currently, there are only two groups of HLA and using the one-hot encoding method to encode the HLA classification.
 
 ## Model
 The model of the pMHC-TCR binding prediction contains the following parts:
@@ -39,4 +40,6 @@ The model of the pMHC-TCR binding prediction contains the following parts:
 3. pMHC-TCR binding prediction
 
 ### TCR encoding
-The TCR sequence contains several different parts, including the three CDR region of each alpha-chain and the total number of the regions is 6. And each part should be encoded as a vector. The encoding method we used is 
+The TCR sequence contains several different parts, including the three CDR region of each alpha-chain and the total number of the regions is 6. And each part should be encoded as a vector. The encoding method we used is Atchley factor to encode each amino acid. For each region, it will be padding into the longest length of the sequence of the code. The final output of the TCR encoding is a 6 x length x 5 vector for each sample.
+
+###
