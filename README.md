@@ -42,4 +42,8 @@ The model of the pMHC-TCR binding prediction contains the following parts:
 ### TCR encoding
 The TCR sequence contains several different parts, including the three CDR region of each alpha-chain and the total number of the regions is 6. And each part should be encoded as a vector. The encoding method we used is Atchley factor to encode each amino acid. For each region, it will be padding into the longest length of the sequence of the code. The final output of the TCR encoding is a 6 x length x 5 vector for each sample.
 
-###
+## Model Architecture and Strategy
+The prediction task of this project could be thought as a combination of two tasks: the TCR binding to the MHC-antigen complex and the neoantigen bind to MHC molecule. So we need to construct a model that could predict the binding affinity of the TCR and the MHC-antigen complex. 
+
+1. The first strategy is to build the positive and negative samples. The positive sample contain the correct binding features while the negative samples are incorrect. For the negative samples we could use the random sampling method to generate a part of it and then use the negative incorrect samples in experiment. 
+2. We will try to use different regions of TCR to predict the binding affinity of the TCR and the MHC-antigen complex. For more details, the CDR3 region is more important than other regions in combinding with the MHC-antigen complex. So we will try to only use the CDR3 region to predict the binding and then with the other regions to compare the performance of the model.
