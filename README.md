@@ -47,3 +47,6 @@ The prediction task of this project could be thought as a combination of two tas
 
 1. The first strategy is to build the positive and negative samples. The positive sample contain the correct binding features while the negative samples are incorrect. For the negative samples we could use the random sampling method to generate a part of it and then use the negative incorrect samples in experiment. 
 2. We will try to use different regions of TCR to predict the binding affinity of the TCR and the MHC-antigen complex. For more details, the CDR3 region is more important than other regions in combinding with the MHC-antigen complex. So we will try to only use the CDR3 region to predict the binding and then with the other regions to compare the performance of the model.
+
+# Some databases could be helpful
+1. McPAS-TCR: A manually curated catalogue of pathology associated T-cell receptor sequences. 
